@@ -21,6 +21,6 @@ export class AuthService {
     if (!user || !(await bcrypt.compare(data.password, user.password))) {
       throw new Error('Invalid credentials');
     }
-    return { token: jwt.sign({ id: user.id }, "process.env.JWT_SECRET") };
+    return { token: jwt.sign({ id: user.id }, "JWT_SECRET") };
   }
 }
